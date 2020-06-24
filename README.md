@@ -1,2 +1,2 @@
 # HackerRankMySQLPractice
-Solutions and problem statements for HackerRank SQL Modules
+Problem statements and my solutions for HackerRank SQL Practice Problems
