@@ -1,0 +1,12 @@
+# https://www.hackerrank.com/challenges/binary-search-tree-1/problem
+
+SELECT n, 'Root' 
+FROM bst WHERE p IS NULL
+UNION
+
+SELECT n, 'Leaf' FROM bst b1 WHERE NOT EXISTS ( SELECT 1 FROM bst b2 WHERE b1.n = b2.p )
+UNION
+
+SELECT n, 'Inner' FROM bst b1 WHERE EXISTS (SELECT 1 FROM bst b2 WHERE b1.n = b2.p ) AND p IS NOT NULL
+
+ORDER BY n
