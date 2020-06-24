@@ -1,0 +1,10 @@
+# https://www.hackerrank.com/challenges/what-type-of-triangle/problem
+
+SELECT
+CASE
+   WHEN A+B<=C OR A+C<=B OR C+B<=A THEN 'Not A Triangle'
+   WHEN (A<>B AND A+B>C) AND (B<>C AND B+C>A) AND (A<>C AND A+C>B) THEN 'Scalene'
+   WHEN (A=B AND B<>C AND A+B>C) OR (B=C AND B<>A AND B+C>A) OR (A=C AND C<>B AND A+C>B) THEN 'Isosceles'
+   WHEN A=B AND B=C THEN 'Equilateral' 
+   end as triangle 
+from TRIANGLES;
