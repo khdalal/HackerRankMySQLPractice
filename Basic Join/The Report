@@ -1,0 +1,9 @@
+#https://www.hackerrank.com/challenges/the-report/problem
+
+SELECT
+IF(g.grade < 8, null, s.Name) as name,
+g.grade,
+s.marks
+FROM students AS s 
+JOIN grades AS g ON s.marks >= g.min_mark AND s.marks <= g.max_mark
+ORDER BY g.grade DESC, name ASC, s.marks ASC
