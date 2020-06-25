@@ -1,0 +1,7 @@
+https://www.hackerrank.com/challenges/african-cities/submissions/code/165765904
+
+SELECT
+city.name
+FROM city
+JOIN country ON city.countrycode = country.code
+WHERE country.continent = 'Africa'
