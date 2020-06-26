@@ -25,6 +25,6 @@ or number_of_challenges in
     where h.hacker_id = c.hacker_id
     group by h.hacker_id, h.name
     ) counts
-    group by total
+    group by number_of_challenges
     having number_of_challenges = 1 )
 order by total desc, h.hacker_id asc;
