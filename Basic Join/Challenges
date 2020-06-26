@@ -1,0 +1,30 @@
+ # https://www.hackerrank.com/challenges/challenges/problem
+ # still struggling with this challenge
+ 
+SELECT
+h.hacker_id,
+h.name,
+COUNT(c.challenge_id) as number_of_challenges
+FROM Hackers h, Challenges c
+WHERE h.hacker_id = c.hacker_id
+GROUP BY h.hacker_id, h.name
+having number_of_challenges =
+	( 
+    select number_of_challenges
+    from c
+    group by hacker_id
+    order by number_of_challenges 
+    DESC limit 1
+    )
+or number_of_challenges in
+	(
+    select number_of_challenges from
+    ( 
+    select number_of_challenges 
+    from hackers h, challenges c
+    where h.hacker_id = c.hacker_id
+    group by h.hacker_id, h.name
+    ) counts
+    group by total
+    having number_of_challenges = 1 )
+order by total desc, h.hacker_id asc;
