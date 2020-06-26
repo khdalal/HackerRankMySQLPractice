@@ -1,0 +1,14 @@
+# https://www.hackerrank.com/challenges/contest-leaderboard/problem
+
+SELECT h.hacker_id, h.name, SUM(score) as total_score
+FROM Hackers h inner join
+/*
+max score subquery 
+Creating a table instance with only max scores called max_score
+*/
+( SELECT hacker_id, max(score) as score FROM submissions GROUP BY challenge_id, hacker_id ) max_score 
+on h.hacker_id = max_score.hacker_id
+GROUP BY hacker_id, h.name
+HAVING total_score > 0
+ORDER BY total_score DESC, h.hacker_id ASC
+    
